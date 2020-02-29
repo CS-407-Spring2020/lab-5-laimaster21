@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoActivity2(String s){
         Intent intent=new Intent(this,Main2Activity.class);
-        intent.putExtra("dollars",s);
+        intent.putExtra("username",s);
         startActivity(intent);
     }
     @Override
