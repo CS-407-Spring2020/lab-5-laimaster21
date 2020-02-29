@@ -3,7 +3,9 @@ package c.sakshi.lab5;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,11 +19,14 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-
+        String userNameKey="username";
+        // fetch shared preferences
+        SharedPreferences sharedPreferences =
+                getSharedPreferences("c.sakshi.lab5", Context.MODE_PRIVATE);
         textview= (TextView) findViewById(R.id.textView);
-        Intent intent=getIntent();
-        String str=intent.getStringExtra("username");
+        //Intent intent=getIntent();
+        // get name from shared preferences
+        String str=sharedPreferences.getString(userNameKey,"");
         textview.setText("Welcome "+str);
     }
     public void gotoActivity1(){
@@ -40,6 +45,10 @@ public class Main2Activity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.itemLogOut:
                 Toast.makeText(this,"Item 1 selected",Toast.LENGTH_SHORT).show();
+                // clean preferences
+                SharedPreferences sharedPreferences =
+                        getSharedPreferences("c.sakshi.lab5", Context.MODE_PRIVATE);
+                sharedPreferences.edit().remove("username").apply();
                 gotoActivity1();
 
 
