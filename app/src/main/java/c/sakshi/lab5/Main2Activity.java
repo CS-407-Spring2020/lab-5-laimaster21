@@ -67,7 +67,7 @@ public class Main2Activity extends AppCompatActivity {
                 // go to third activity
                 Intent intent=new Intent(getApplicationContext(),Main3Activity.class);
 
-                intent.putExtra("noteid",position);
+                intent.putExtra("noteId",position);
                 startActivity(intent);
 
             }
