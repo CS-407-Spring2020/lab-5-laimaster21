@@ -64,7 +64,7 @@ public class Main3Activity extends AppCompatActivity {
 
         if(noteid==-1){
             title="NOTE_"+(Main2Activity.notes.size()+1);
-            dbHelper.updateNotes(username,title,content,date);
+            dbHelper.saveNotes(username,title,content,date);
         }else{
             title="NOTE_"+(noteid+1);
             dbHelper.updateNotes(username,title,content,date);
